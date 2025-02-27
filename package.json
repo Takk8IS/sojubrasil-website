@@ -1,0 +1,84 @@
+{
+    "name": "sojubrasil-website",
+    "version": "1.0.0",
+    "description": "Website for Soju Brasil",
+    "author": {
+        "name": "David C Cavalcante",
+        "email": "davcavalcante@proton.me",
+        "organization": "Takk Innovate Studio",
+        "url": "https://www.linkedin.com/in/hellodav"
+    },
+    "license": "Apache-2.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Takk8IS/sojubrasil-website.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Takk8IS/sojubrasil-website/issues"
+    },
+    "homepage": "https://github.com/Takk8IS/sojubrasil-website#readme",
+    "funding": {
+        "type": "github",
+        "url": "https://github.com/sponsors/Takk8IS"
+    },
+    "contributors": [
+        {
+            "name": "Takk Innovate Studio",
+            "email": "say@takk.ag",
+            "url": "https://takk.ag"
+        },
+        {
+            "name": "Fjallstoppur",
+            "email": "fjallstoppur@proton.me",
+            "url": "https://github.com/fjallstoppur"
+        }
+    ],
+    "keywords": [
+        "tailwindcss",
+        "next",
+        "website",
+        "soju",
+        "soju-brasil",
+        "mimos-korea",
+        "mimos-korea-design",
+        "davcavalcante",
+        "david-c-cavalcante",
+        "fjallstoppur",
+        "takk-innovate-studio",
+        "takk8is"
+    ],
+    "engines": {
+        "node": ">=20.x",
+        "npm": ">=9.x",
+        "chrome": ">=115",
+        "firefox": ">=110",
+        "edge": ">=100",
+        "safari": ">=16"
+    },
+    "private": true,
+    "scripts": {
+        "dev": "next dev --turbopack",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@studio-freight/lenis": "^1.0.42",
+        "framer-motion": "^12.4.7",
+        "next": "15.2.0",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+        "shadcn": "^2.4.0-canary.9"
+    },
+    "devDependencies": {
+        "@eslint/eslintrc": "^3",
+        "@tailwindcss/postcss": "^4",
+        "@types/node": "^22",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "eslint": "^9",
+        "eslint-config-next": "15.2.0",
+        "tailwindcss": "^4",
+        "typescript": "^5"
+    }
+}
