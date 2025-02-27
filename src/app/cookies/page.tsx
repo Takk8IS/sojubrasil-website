@@ -41,19 +41,19 @@ export default function CookiesPage() {
                             Utilizamos cookies por vários motivos. Alguns
                             cookies são necessários por razões técnicas para que
                             nosso site opere, e nos referimos a eles como
-                            cookies "essenciais" ou "estritamente necessários".
-                            Outros cookies também nos permitem rastrear e
-                            direcionar os interesses de nossos usuários para
-                            aprimorar a experiência em nosso site. Por exemplo,
-                            a Soju Brasil (Lotte) rastreia as páginas que você
-                            visita dentro do site para determinar qual parte do
-                            site ou produtos (Chum Churum Soju, em seus diversos
-                            sabores como Pêssego, Uva, Cidra, Maçã, Morango e
-                            Iogurte) são os mais populares. Esses dados são
-                            usados para entregar conteúdo e promoções
-                            personalizadas dentro do site para clientes cujo
-                            comportamento indica que eles estão interessados em
-                            uma área específica.
+                            cookies &quot;essenciais&quot; ou &quot;estritamente
+                            necessários&quot;. Outros cookies também nos
+                            permitem rastrear e direcionar os interesses de
+                            nossos usuários para aprimorar a experiência em
+                            nosso site. Por exemplo, a Soju Brasil (Lotte)
+                            rastreia as páginas que você visita dentro do site
+                            para determinar qual parte do site ou produtos (Chum
+                            Churum Soju, em seus diversos sabores como Pêssego,
+                            Uva, Cidra, Maçã, Morango e Iogurte) são os mais
+                            populares. Esses dados são usados para entregar
+                            conteúdo e promoções personalizadas dentro do site
+                            para clientes cujo comportamento indica que eles
+                            estão interessados em uma área específica.
                         </p>
                         <p>
                             Os tipos específicos de cookies servidos através do
