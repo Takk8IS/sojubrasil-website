@@ -1,13 +1,1 @@
-{
-  "app": {
-    "[project]/src/app/page": [
-      "static/media/1Ptvg83HX_SGhgqk3wotYKNnBQ-s.p.3cc8b53d.woff2"
-    ],
-    "[project]/src/app/_not-found/page": [
-      "static/media/1Ptvg83HX_SGhgqk3wotYKNnBQ-s.p.3cc8b53d.woff2"
-    ]
-  },
-  "appUsingSizeAdjust": true,
-  "pages": {},
-  "pagesUsingSizeAdjust": false
-}
+{"pages":{},"app":{"/Users/david/Takk/Hub/clients/MimosKoreaDesign/sojubrasil-website/src/app/layout":["static/media/f7040064460a9b21-s.p.woff2"]},"appUsingSizeAdjust":true,"pagesUsingSizeAdjust":false}

@@ -1,8 +1,8 @@
 {
-  "/favicon.ico/route": "/favicon.ico",
   "/_not-found/page": "/_not-found",
-  "/cookies/page": "/cookies",
-  "/termos/page": "/termos",
+  "/favicon.ico/route": "/favicon.ico",
+  "/page": "/",
   "/privacidade/page": "/privacidade",
-  "/page": "/"
+  "/termos/page": "/termos",
+  "/cookies/page": "/cookies"
 }
