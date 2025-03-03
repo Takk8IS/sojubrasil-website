@@ -4,12 +4,6 @@ import type React from "react";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-interface ScrollSectionProps {
-    children: React.ReactNode;
-    className?: string;
-    as?: React.ElementType;
-}
-
 export function ScrollSection({
     children,
     className = "",
@@ -21,26 +15,28 @@ export function ScrollSection({
         offset: ["start end", "end start"],
     });
 
-    const opacity = useTransform(
-        scrollYProgress,
-        [0, 0.2, 0.8, 1],
-        [0, 1, 1, 0],
-    );
     const y = useTransform(
         scrollYProgress,
         [0, 0.2, 0.8, 1],
         [100, 0, 0, -100],
     );
+    const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1, 0.95]);
 
     const Component = motion(as);
 
     return (
         <Component
             ref={ref}
-            style={{ opacity, y }}
-            className={`relative min-h-screen py-24 ${className}`}
+            style={{ y, scale }}
+            className={`relative min-h-[80vh] py-16 ${className}`}
         >
             {children}
         </Component>
     );
+}
+
+interface ScrollSectionProps {
+    children: React.ReactNode;
+    className?: string;
+    as?: React.ElementType;
 }

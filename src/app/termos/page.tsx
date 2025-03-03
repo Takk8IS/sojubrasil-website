@@ -1,20 +1,18 @@
+"use client";
+
 import Link from "next/link";
 import { Footer } from "../components/footer";
 
 export default function TermsPage() {
     return (
         <>
-            <main className="min-h-screen py-24 px-4">
-                <div className="container mx-auto max-w-3xl">
-                    <h1 className="text-4xl md:text-6xl font-bold mb-12">
-                        Termos de Uso
-                    </h1>
-                    <div className="prose prose-lg">
+            <main className="bg-[var(--background)] grid place-items-center">
+                <div className="max-w-7xl w-full px-4 py-8 mt-10 mb-20">
+                    <h2 className="mb-6">Termos</h2>
+                    <div className="space-y-4">
                         <p>
-                            Última atualização:{" "}
-                            {new Date().toLocaleDateString("pt-BR")}
+                            <b>Termos de Uso do Site Soju Brasil (Lotte)</b>
                         </p>
-                        <h2>Termos de Uso do Site Soju Brasil (Lotte)</h2>
 
                         <p>
                             Bem-vindo ao Soju Brasil, o site da Lotte para o
@@ -23,7 +21,9 @@ export default function TermsPage() {
                             Leia-os atentamente.
                         </p>
 
-                        <h3>1. Aceitação dos Termos</h3>
+                        <p>
+                            <b>1. Aceitação dos Termos</b>
+                        </p>
 
                         <p>
                             Ao acessar ou usar o site Soju Brasil, você concorda
@@ -32,7 +32,9 @@ export default function TermsPage() {
                             algum destes termos, não use este site.
                         </p>
 
-                        <h3>2. Uso do Site</h3>
+                        <p>
+                            <b>2. Uso do Site</b>
+                        </p>
 
                         <p>
                             Este site é destinado a fornecer informações sobre o
@@ -44,7 +46,9 @@ export default function TermsPage() {
                             aproveitamento do site por qualquer outra pessoa.
                         </p>
 
-                        <h3>3. Conteúdo do Site</h3>
+                        <p>
+                            <b>3. Conteúdo do Site</b>
+                        </p>
 
                         <p>
                             Todo o conteúdo deste site, incluindo textos,
@@ -70,7 +74,9 @@ export default function TermsPage() {
                             torno de 12% a 16,5%, dependendo do sabor).
                         </p>
 
-                        <h3>4. Restrição de Idade</h3>
+                        <p>
+                            <b>4. Restrição de Idade</b>
+                        </p>
 
                         <p>
                             Este site é destinado a pessoas com idade legal para
@@ -79,7 +85,9 @@ export default function TermsPage() {
                             tem idade legal para beber.
                         </p>
 
-                        <h3>5. Isenção de Responsabilidade</h3>
+                        <p>
+                            <b>5. Isenção de Responsabilidade</b>
+                        </p>
 
                         <p>
                             As informações fornecidas neste site são apenas para
@@ -90,7 +98,9 @@ export default function TermsPage() {
                             feito com moderação.
                         </p>
 
-                        <h3>6. Links para Sites de Terceiros</h3>
+                        <p>
+                            <b>6. Links para Sites de Terceiros</b>
+                        </p>
 
                         <p>
                             Este site pode conter links para sites de terceiros.
@@ -98,7 +108,9 @@ export default function TermsPage() {
                             práticas de privacidade desses sites.
                         </p>
 
-                        <h3>7. Alterações nos Termos de Uso</h3>
+                        <p>
+                            <b>7. Alterações nos Termos de Uso</b>
+                        </p>
 
                         <p>
                             A Lotte reserva-se o direito de modificar estes
@@ -109,27 +121,25 @@ export default function TermsPage() {
                             quaisquer alterações.
                         </p>
 
-                        <h3>8. Lei Aplicável</h3>
+                        <p>
+                            <b>8. Lei Aplicável</b>
+                        </p>
+
                         <p>
                             Estes Termos de Uso serão regidos e interpretados de
                             acordo com as leis brasileiras, sem levar em
                             consideração os conflitos de princípios legais.
                         </p>
 
-                        <h3>9. Contato</h3>
+                        <p>
+                            <b>9. Contato</b>
+                        </p>
+
                         <p>
                             Se você tiver alguma dúvida sobre estes Termos de
                             Uso, entre em contato conosco através dos canais
                             disponíveis no site.
                         </p>
-                    </div>
-                    <div className="mt-12">
-                        <Link
-                            href="/"
-                            className="text-lg hover:opacity-70 transition-opacity"
-                        >
-                            ← Voltar para home
-                        </Link>
                     </div>
                 </div>
             </main>

@@ -1,19 +1,15 @@
+"use client";
+
 import Link from "next/link";
 import { Footer } from "../components/footer";
 
 export default function CookiesPage() {
     return (
         <>
-            <main className="min-h-screen py-24 px-4">
-                <div className="container mx-auto max-w-3xl">
-                    <h1 className="text-4xl md:text-6xl font-bold mb-12">
-                        Política de Cookies - Soju Brasil (Lotte)
-                    </h1>
-                    <div className="prose prose-lg">
-                        <p>
-                            Última atualização:{" "}
-                            {new Date().toLocaleDateString("pt-BR")}
-                        </p>
+            <main className="bg-[var(--background)] grid place-items-center">
+                <div className="max-w-7xl w-full px-4 py-8 mt-10 mb-20">
+                    <h2 className="mb-6">Cookies</h2>
+                    <div className="space-y-4">
                         <p>
                             Esta Política de Cookies explica como a Soju Brasil
                             (Lotte), em seu site https://sojubrasil.com, utiliza
@@ -23,7 +19,9 @@ export default function CookiesPage() {
                             direitos de controlar nosso uso delas.
                         </p>
 
-                        <h2>O que são cookies?</h2>
+                        <p>
+                            <b>O que são cookies?</b>
+                        </p>
 
                         <p>
                             Cookies são pequenos arquivos de dados que são
@@ -35,7 +33,9 @@ export default function CookiesPage() {
                             relatórios.
                         </p>
 
-                        <h2>Por que usamos cookies?</h2>
+                        <p>
+                            <b>Por que usamos cookies?</b>
+                        </p>
 
                         <p>
                             Utilizamos cookies por vários motivos. Alguns
@@ -62,16 +62,14 @@ export default function CookiesPage() {
                         </p>
                         <ul>
                             <li>
-                                <strong>Cookies Essenciais do Site:</strong>{" "}
-                                Estes cookies são estritamente necessários para
-                                fornecer a você os serviços disponíveis através
-                                do nosso site e para usar alguns de seus
-                                recursos, como acesso a áreas seguras.
+                                <b>Cookies Essenciais do Site:</b> Estes cookies
+                                são estritamente necessários para fornecer a
+                                você os serviços disponíveis através do nosso
+                                site e para usar alguns de seus recursos, como
+                                acesso a áreas seguras.
                             </li>
                             <li>
-                                <strong>
-                                    Cookies de Desempenho e Funcionalidade:
-                                </strong>{" "}
+                                <b>Cookies de Desempenho e Funcionalidade:</b>{" "}
                                 Estes cookies são usados para aprimorar o
                                 desempenho e a funcionalidade do nosso site, mas
                                 não são essenciais para o seu uso. No entanto,
@@ -79,9 +77,7 @@ export default function CookiesPage() {
                                 vídeos) podem ficar indisponíveis.
                             </li>
                             <li>
-                                <strong>
-                                    Cookies de Análise e Personalização:
-                                </strong>{" "}
+                                <b>Cookies de Análise e Personalização:</b>{" "}
                                 Estes cookies coletam informações que são usadas
                                 de forma agregada para nos ajudar a entender
                                 como nosso site está sendo usado ou quão
@@ -90,21 +86,20 @@ export default function CookiesPage() {
                                 você.
                             </li>
                             <li>
-                                <strong>
-                                    Cookies de Publicidade (Targeting):
-                                </strong>{" "}
-                                Estes cookies são usados para tornar as
-                                mensagens de publicidade mais relevantes para
-                                você. Eles desempenham funções como impedir que
-                                o mesmo anúncio reapareça continuamente,
-                                garantindo que os anúncios sejam exibidos
-                                corretamente para os anunciantes e, em alguns
-                                casos, selecionando anúncios que são baseados em
-                                seus interesses.
+                                <b>Cookies de Publicidade (Targeting):</b> Estes
+                                cookies são usados para tornar as mensagens de
+                                publicidade mais relevantes para você. Eles
+                                desempenham funções como impedir que o mesmo
+                                anúncio reapareça continuamente, garantindo que
+                                os anúncios sejam exibidos corretamente para os
+                                anunciantes e, em alguns casos, selecionando
+                                anúncios que são baseados em seus interesses.
                             </li>
                         </ul>
 
-                        <h2>Como posso controlar os cookies?</h2>
+                        <p>
+                            <b>Como posso controlar os cookies?</b>
+                        </p>
 
                         <p>
                             Você tem o direito de decidir se aceita ou rejeita
@@ -117,7 +112,9 @@ export default function CookiesPage() {
                             aproveitar ao máximo o site.
                         </p>
 
-                        <h2>Alterações a esta Política de Cookies</h2>
+                        <p>
+                            <b>Alterações a esta Política de Cookies</b>
+                        </p>
                         <p>
                             Podemos atualizar esta Política de Cookies de tempos
                             em tempos para refletir, por exemplo, mudanças nos
@@ -127,20 +124,14 @@ export default function CookiesPage() {
                             manter informado sobre nosso uso de cookies e
                             tecnologias relacionadas.
                         </p>
-                        <h2>Mais Informações</h2>
+                        <p>
+                            <b>Mais Informações</b>
+                        </p>
                         <p>
                             Se você tiver alguma dúvida sobre nosso uso de
                             cookies ou outras tecnologias, entre em contato
                             conosco.
                         </p>
-                    </div>
-                    <div className="mt-12">
-                        <Link
-                            href="/"
-                            className="text-lg hover:opacity-70 transition-opacity"
-                        >
-                            ← Voltar para home
-                        </Link>
                     </div>
                 </div>
             </main>

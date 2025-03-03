@@ -1,6 +1,6 @@
 {
     "name": "sojubrasil-website",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "description": "Website for Soju Chum Churum Brasil",
     "author": {
         "name": "David C Cavalcante",
@@ -63,12 +63,12 @@
         "lint": "next lint"
     },
     "dependencies": {
-        "@studio-freight/lenis": "^1.0.42",
         "framer-motion": "^12.4.7",
+        "lenis": "^1.1.22",
         "next": "15.2.0",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
-        "shadcn": "^2.4.0-canary.9"
+        "shadcn": "^2.4.0-canary.11"
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3",

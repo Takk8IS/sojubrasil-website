@@ -1,19 +1,15 @@
+"use client";
+
 import Link from "next/link";
 import { Footer } from "../components/footer";
 
 export default function PrivacyPage() {
     return (
         <>
-            <main className="min-h-screen py-24 px-4">
-                <div className="container mx-auto max-w-3xl">
-                    <h1 className="text-4xl md:text-6xl font-bold mb-12">
-                        Política de Privacidade
-                    </h1>
-                    <div className="prose prose-lg">
-                        <p>
-                            Última atualização:{" "}
-                            {new Date().toLocaleDateString("pt-BR")}
-                        </p>
+            <main className="bg-[var(--background)] grid place-items-center">
+                <div className="max-w-7xl w-full px-4 py-8 mt-10 mb-20">
+                    <h2 className="mb-6">Privacidade</h2>
+                    <div className="space-y-4">
                         <p>
                             A Lotte, proprietária do site Soju Brasil
                             (https://sojubrasil.com), está comprometida em
@@ -23,7 +19,9 @@ export default function PrivacyPage() {
                             fornece em nosso site.
                         </p>
 
-                        <h2>Coleta de Informações</h2>
+                        <p>
+                            <b>Coleta de Informações</b>
+                        </p>
 
                         <p>
                             Podemos coletar informações pessoais, como nome,
@@ -50,7 +48,9 @@ export default function PrivacyPage() {
                             para fins estatísticos.
                         </p>
 
-                        <h2>Uso das Informações</h2>
+                        <p>
+                            <b>Uso das Informações</b>
+                        </p>
                         <p>
                             As informações que coletamos podem ser usadas para:
                         </p>
@@ -66,7 +66,9 @@ export default function PrivacyPage() {
                             <li>Cumprir obrigações legais.</li>
                         </ul>
 
-                        <h2>Compartilhamento de Informações</h2>
+                        <p>
+                            <b>Compartilhamento de Informações</b>
+                        </p>
                         <p>
                             Não vendemos, trocamos ou alugamos suas informações
                             pessoais para terceiros. Podemos compartilhar suas
@@ -89,7 +91,9 @@ export default function PrivacyPage() {
                             </li>
                         </ul>
 
-                        <h2>Segurança das Informações</h2>
+                        <p>
+                            <b>Segurança das Informações</b>
+                        </p>
                         <p>
                             Implementamos medidas de segurança para proteger
                             suas informações pessoais contra acesso não
@@ -100,7 +104,9 @@ export default function PrivacyPage() {
                             nós.
                         </p>
 
-                        <h2>Cookies</h2>
+                        <p>
+                            <b>Cookies</b>
+                        </p>
                         <p>
                             Utilizamos cookies para melhorar sua experiência em
                             nosso site. Cookies são pequenos arquivos de texto
@@ -112,7 +118,9 @@ export default function PrivacyPage() {
                             nosso site podem não funcionar corretamente.
                         </p>
 
-                        <h2>Seus Direitos</h2>
+                        <p>
+                            <b>Seus Direitos</b>
+                        </p>
 
                         <p>Você tem o direito de:</p>
                         <ul>
@@ -133,7 +141,9 @@ export default function PrivacyPage() {
                             site.
                         </p>
 
-                        <h2>Alterações a esta Política de Privacidade</h2>
+                        <p>
+                            <b>Alterações a esta Política de Privacidade</b>
+                        </p>
                         <p>
                             Podemos atualizar esta Política de Privacidade
                             periodicamente. Quaisquer alterações serão
@@ -141,20 +151,14 @@ export default function PrivacyPage() {
                             atualização indicada no topo.
                         </p>
 
-                        <h2>Contato</h2>
+                        <p>
+                            <b>Contato</b>
+                        </p>
                         <p>
                             Se você tiver alguma dúvida sobre esta Política de
                             Privacidade, entre em contato conosco através do
                             formulário de contato em nosso site.
                         </p>
-                    </div>
-                    <div className="mt-12">
-                        <Link
-                            href="/"
-                            className="text-lg hover:opacity-70 transition-opacity"
-                        >
-                            ← Voltar para home
-                        </Link>
                     </div>
                 </div>
             </main>

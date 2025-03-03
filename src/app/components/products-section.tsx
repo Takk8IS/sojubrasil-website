@@ -1,161 +1,276 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { motion, useScroll } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+import {
+    motion,
+    useScroll,
+    useTransform,
+    useSpring,
+    useMotionValue,
+} from "framer-motion";
 import Image from "next/image";
+
+import sojuManga from "../../assets/images/soju-manga.webp";
+import sojuPessego from "../../assets/images/soju-pessego.webp";
+import sojuMacaVerde from "../../assets/images/soju-maca-verde.webp";
+import sojuMorango from "../../assets/images/soju-morango.webp";
+import sojuIogurte from "../../assets/images/soju-iogurte.webp";
+import sojuBlueberry from "../../assets/images/soju-blueberry.webp";
+import sojuOriginal from "../../assets/images/soju-original.webp";
 
 const products = [
     {
-        name: "Chum Churum Soonhari Maçã Verde",
+        name: "Original",
         description:
-            "Experimente o refrescante Soju Chum Churum Soonhari Maçã Verde, um destilado coreano suave com um toque vibrante de maçã verde. Perfeito para celebrar momentos especiais ou relaxar. Teor alcoólico: 16,5%. Garrafa de 375ml. Descubra o sabor da Coreia!",
-        color: "#0F8C46", // Cor principal Maçã Verde
-        image: "/soju-maca-verde.webp",
-        alt: "Soju Chum Churum Soonhari Maçã Verde - Bebida Destilada Coreana Premium",
-        keywords:
-            "soju, chum churum, soonhari, maçã verde, apple, bebida coreana, destilado, suave, refrescante, álcool, coreia, lotte, comprar soju, soju online, bebida alcoólica, soju maçã, melhor soju, soju brasil, onde comprar soju, soju preço, drink com soju, coquetel com soju, soju puro, soju com frutas",
+            'A essência do soju tradicional, feito com água alcalina pura, proporciona uma suavidade única ao paladar. "Chum Churum" significa "Como da Primeira Vez", refletindo o frescor e a novidade em cada gole.',
+        color: "#EBF2DC",
+        image: sojuOriginal,
+        ingredients:
+            "Água mineral pura, destilado de arroz e tapioca, xarope de milho de alta frutose, adoçante artificial.",
+        details: {
+            type: "Destilado Especial / Soju",
+            abv: "16,5%",
+            bottleSize: "375ml",
+            characteristics:
+                "Feito com água alcalina, proporciona uma suavidade única ao paladar, ideal para quem aprecia o verdadeiro sabor do soju.",
+        },
     },
     {
-        name: "Chum Churum Soonhari Manga",
+        name: "Manga",
         description:
-            "Deixe-se levar pela doçura exótica do Soju Chum Churum Soonhari Manga. Um destilado coreano tropical, perfeito para dar um toque especial às suas comemorações. Direto da Coreia para você! Teor alcoólico: 16,5%. Garrafa de 375ml.",
-        color: "#F27329", // Cor principal Manga
-        image: "/soju-manga.webp",
-        alt: "Soju Chum Churum Soonhari Manga - Bebida Destilada Coreana Sabor Tropical",
-        keywords:
-            "soju, chum churum, soonhari, manga, mango, bebida coreana, destilado, tropical, doce, álcool, coreia, lotte, comprar soju, soju online, bebida alcoólica, soju manga, soju brasil, onde comprar soju, soju preço, drink com soju, coquetel com soju",
+            "Um deleite suave e adocicado que lembra um doce de manga recém-colhido. Seu aroma envolvente torna cada gole uma experiência inesquecível.",
+        color: "#F2C4C4",
+        image: sojuManga,
+        ingredients:
+            "Água purificada, destilado de arroz e tapioca, suco de manga, aroma de manga, adoçante artificial.",
+        details: {
+            type: "Soju Saborizado",
+            abv: "12%",
+            bottleSize: "375ml",
+            characteristics:
+                "Sabor tropical marcante com aroma frutado intenso, perfeito para degustação pura ou em coquetéis.",
+        },
     },
     {
-        name: "Chum Churum Soonhari Blueberry",
+        name: "Pêssego",
         description:
-            "Descubra a combinação vibrante de mirtilos e a suavidade do Soju coreano Chum Churum Soonhari Blueberry. Uma experiência única e deliciosa! Teor alcoólico: 16,5%. Garrafa de 375ml.  Soju Brasil: o autêntico sabor da Coreia.",
-        color: "#562C73", // Cor principal Blueberry
-        image: "/soju-blueberry.webp",
-        alt: "Soju Chum Churum Soonhari Blueberry - Bebida Destilada Coreana com Mirtilo",
-        keywords:
-            "soju, chum churum, soonhari, blueberry, mirtilo, bebida coreana, destilado, vibrante, álcool, coreia, lotte, comprar soju, soju online, bebida alcoólica, soju blueberry, soju brasil, onde comprar soju, soju preço, drink com soju",
+            "Um deleite suave e adocicado que lembra um doce de pêssego recém-colhido. Seu aroma envolvente torna cada gole uma experiência inesquecível.",
+        color: "#F2BFBB",
+        image: sojuPessego,
+        ingredients:
+            "Água purificada, destilado de arroz e tapioca, suco de pêssego, aroma de pêssego, adoçante artificial.",
+        details: {
+            type: "Soju Saborizado",
+            abv: "12%",
+            bottleSize: "375ml",
+            characteristics:
+                "Suavidade e doçura em perfeito equilíbrio, com aroma persistente de pêssego maduro.",
+        },
     },
     {
-        name: "Chum Churum Soonhari Pêssego",
+        name: "Maçã Verde",
         description:
-            "Delicie-se com o Soju Chum Churum Soonhari Pêssego, um destilado coreano premium com o sabor suave e sofisticado do pêssego.  Perfeito para momentos especiais. Teor alcoólico: 16,5%. Garrafa de 375ml.  A bebida destilada mais vendida no mundo!",
-        color: "#D94395", // Cor principal Pêssego
-        image: "/soju-pessego.webp",
-        alt: "Soju Chum Churum Soonhari Pêssego - Bebida Destilada Coreana Sabor Pêssego",
-        keywords:
-            "soju, chum churum, soonhari, pêssego, peach, bebida coreana, destilado, suave, sofisticado, álcool, coreia, lotte, comprar soju, soju online, bebida alcoólica, soju pêssego, soju brasil, onde comprar soju, melhor soju, soju preço",
+            "O equilíbrio perfeito entre doce e azedo, com o frescor natural da maçã verde. Remete a uma bala de maçã com um toque sofisticado, ideal para adultos que amam sabores intensos.",
+        color: "#CDD9A3",
+        image: sojuMacaVerde,
+        ingredients:
+            "Água purificada, destilado de arroz e tapioca, suco de maçã, aroma de maçã, adoçante artificial.",
+        details: {
+            type: "Soju Saborizado",
+            abv: "12%",
+            bottleSize: "375ml",
+            characteristics:
+                "Acidez refrescante típica da maçã verde com finalização levemente adocicada.",
+        },
     },
     {
-        name: "Chum Churum Soonhari Morango",
+        name: "Morango",
         description:
-            "Experimente a harmonia perfeita entre a doçura do morango e a tradição coreana do Soju Chum Churum Soonhari Morango.  Uma explosão de sabor! Teor alcoólico: 16,5%. Garrafa de 375ml.  Lotte Soju: tradição e qualidade.",
-        color: "#D92332", // Cor principal Morango
-        image: "/soju-morango.webp",
-        alt: "Soju Chum Churum Soonhari Morango - Bebida Destilada Coreana com Morango",
-        keywords:
-            "soju, chum churum, soonhari, morango, strawberry, bebida coreana, destilado, doce, álcool, coreia, lotte, comprar soju, soju online, bebida alcoólica, soju morango, soju brasil, onde comprar soju, drink com soju, soju preço",
+            "Sabor marcante e suave de morango, com um aroma intenso que desperta os sentidos. Uma escolha perfeita para quem ama frutas vermelhas.",
+        color: "#F2C2DC",
+        image: sojuMorango,
+        ingredients:
+            "Água purificada, destilado de arroz e tapioca, suco de morango, aroma de morango, adoçante artificial.",
+        details: {
+            type: "Soju Saborizado",
+            abv: "12%",
+            bottleSize: "375ml",
+            characteristics:
+                "Doçura natural e aroma intenso de morango fresco, com finalização equilibrada.",
+        },
     },
     {
-        name: "Chum Churum Soonhari Iogurte",
+        name: "Iogurte",
         description:
-            "Descubra a refrescância e o sabor único do Soju Chum Churum Soonhari Iogurte. A combinação perfeita entre o iogurte e a bebida coreana mais famosa do mundo.  Uma experiência surpreendente! Teor alcoólico: 16,5%. Garrafa de 375ml.",
-        color: "#F2913D", // Cor principal Iogurte
-        image: "/soju-iogurte.webp",
-        alt: "Soju Chum Churum Soonhari Iogurte - Bebida Destilada Coreana Sabor Iogurte",
-        keywords:
-            "soju, chum churum, soonhari, iogurte, yogurt, bebida coreana, destilado, refrescante, álcool, coreia, lotte, comprar soju, soju online, bebida alcoólica, soju iogurte, bebida cremosa, soju brasil, onde comprar soju, soju preço, drink com soju",
+            "Leve e refrescante, este soju combina a doçura sutil do iogurte com notas cremosas de laranja e pêssego. Uma versão elegante de um orange creamsicle, ideal puro ou com pratos como Samgyeopsal (churrasco coreano).",
+        color: "#F2E6D8",
+        image: sojuIogurte,
+        ingredients:
+            "Água purificada, destilado de arroz e tapioca, aroma de iogurte, aroma de laranja, aroma de pêssego, adoçante artificial.",
+        details: {
+            type: "Soju Saborizado",
+            abv: "12%",
+            bottleSize: "375ml",
+            characteristics:
+                "Textura cremosa com notas de cítricos, perfeito para harmonização com pratos da culinária coreana.",
+        },
+    },
+    {
+        name: "Blueberry",
+        description:
+            "Desfrute do sabor suave e adocicado do blueberry, com uma doçura natural que encanta sem o amargor típico do soju tradicional. Refrescante e delicioso, é uma opção que conquista logo no primeiro gole.",
+        color: "#E7DCF2",
+        image: sojuBlueberry,
+        ingredients:
+            "Água purificada, destilado de arroz e tapioca, suco de blueberry, aroma de blueberry, adoçante artificial.",
+        details: {
+            type: "Soju Saborizado",
+            abv: "12%",
+            bottleSize: "375ml",
+            characteristics:
+                "Sabor sofisticado de frutas vermelhas com notas doces e baixa acidez.",
+        },
     },
 ];
 
 export function ProductsSection() {
     const sectionRef = useRef<HTMLDivElement>(null);
     const [currentProduct, setCurrentProduct] = useState(0);
+    const imageX = useMotionValue(0);
+    const imageY = useMotionValue(0);
+
     const { scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ["start start", "end end"],
     });
 
+    const smoothProgress = useSpring(scrollYProgress, {
+        damping: 50,
+        stiffness: 400,
+    });
+
+    const y = useTransform(
+        smoothProgress,
+        [0, 1],
+        ["0%", `${-(products.length - 1) * 100}%`],
+    );
+
+    const backgroundColor = useTransform(
+        smoothProgress,
+        products.map((_, i) => i / (products.length - 1)),
+        products.map((product) => product.color),
+    );
+
     useEffect(() => {
-        const unsubscribe = scrollYProgress.onChange((latest) => {
-            const productIndex = Math.min(
-                Math.floor(latest * products.length),
-                products.length - 1,
-            );
+        const unsubscribe = smoothProgress.on("change", (latest) => {
+            const productIndex = Math.round(latest * (products.length - 1));
             setCurrentProduct(productIndex);
         });
-
         return () => unsubscribe();
-    }, [scrollYProgress]);
+    }, [smoothProgress]);
+
+    useEffect(() => {
+        const handleMouseMove = (event: MouseEvent) => {
+            const containerRect = sectionRef.current?.getBoundingClientRect();
+            if (containerRect) {
+                const x =
+                    (event.clientX -
+                        containerRect.left -
+                        containerRect.width / 2) /
+                    20;
+                const y =
+                    (event.clientY -
+                        containerRect.top -
+                        containerRect.height / 2) /
+                    20;
+                imageX.set(x);
+                imageY.set(y);
+            }
+        };
+        window.addEventListener("mousemove", handleMouseMove);
+        return () => window.removeEventListener("mousemove", handleMouseMove);
+    }, [imageX, imageY]);
 
     return (
         <div ref={sectionRef} className="relative h-[600vh]">
             <motion.div
                 className="sticky top-0 h-screen overflow-hidden flex items-center justify-center"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
+                style={{ backgroundColor }}
             >
-                <motion.div
-                    className="absolute inset-0 w-full h-full"
-                    animate={{
-                        backgroundColor: products[currentProduct].color,
-                    }}
-                    transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-                />
-
-                <div className="relative z-10 w-full max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
-                    <motion.div
-                        className="md:w-1/2 text-center md:text-left mb-8 md:mb-0"
-                        initial={{ opacity: 0, y: 50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        <motion.h2
-                            className="text-4xl md:text-6xl font-bold mb-4"
-                            key={products[currentProduct].name}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                        >
-                            {products[currentProduct].name}
-                        </motion.h2>
-                        <motion.p
-                            className="text-xl md:text-2xl"
-                            key={products[currentProduct].description}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.3 }}
-                        >
-                            {products[currentProduct].description}
-                        </motion.p>
-                    </motion.div>
-
-                    <motion.div
-                        className="md:w-1/2 flex justify-center items-center"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5 }}
-                    >
+                <motion.div className="relative w-full h-full" style={{ y }}>
+                    {products.map((product, index) => (
                         <motion.div
-                            key={products[currentProduct].image}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.5 }}
+                            key={product.name}
+                            className="absolute top-0 left-0 w-full h-screen flex items-center justify-center"
+                            style={{ y: `${index * 100}%` }}
                         >
-                            <Image
-                                src={
-                                    products[currentProduct].image ||
-                                    "/placeholder.svg"
-                                }
-                                alt={products[currentProduct].alt}
-                                width={200}
-                                height={600}
-                                className="h-[60vh] w-auto object-contain"
-                                priority
-                            />
+                            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12">
+                                <motion.div
+                                    className="md:w-1/2 text-left pr-6"
+                                    initial={{ x: -50 }}
+                                    animate={{
+                                        x: currentProduct === index ? 0 : -50,
+                                    }}
+                                    transition={{
+                                        duration: 0.5,
+                                        ease: "easeOut",
+                                    }}
+                                >
+                                    <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+                                        {product.name}
+                                    </h2>
+                                    <p className="text-lg md:text-xl mb-6 leading-relaxed">
+                                        {product.description}
+                                    </p>
+                                    <div className="flex flex-wrap gap-4 mb-6 text-sm md:text-base">
+                                        <span>{product.details.type}</span>
+                                        <span>{product.details.abv} ABV</span>
+                                        <span>
+                                            {product.details.bottleSize}
+                                        </span>
+                                    </div>
+                                    <h3 className="text-lg font-semibold mb-2">
+                                        Características
+                                    </h3>
+                                    <p className="text-base mb-6">
+                                        {product.details.characteristics}
+                                    </p>
+                                    <h3 className="text-lg font-semibold mb-2">
+                                        Ingredientes
+                                    </h3>
+                                    <p className="text-base">
+                                        {product.ingredients}
+                                    </p>
+                                </motion.div>
+
+                                <motion.div
+                                    className="md:w-1/2 flex justify-center items-center"
+                                    initial={{ scale: 0.8 }}
+                                    animate={{
+                                        scale:
+                                            currentProduct === index ? 1 : 0.8,
+                                    }}
+                                    transition={{
+                                        duration: 0.5,
+                                        ease: "easeOut",
+                                    }}
+                                    style={{ x: imageX, y: imageY }}
+                                    whileHover={{ scale: 1.05 }}
+                                >
+                                    <Image
+                                        src={product.image}
+                                        alt={`Garrafa de soju sabor ${product.name}`}
+                                        width={300}
+                                        height={800}
+                                        className="h-[80vh] w-auto object-contain drop-shadow-xl"
+                                        priority={index === 0}
+                                        loading={index === 0 ? "eager" : "lazy"}
+                                    />
+                                </motion.div>
+                            </div>
                         </motion.div>
-                    </motion.div>
-                </div>
+                    ))}
+                </motion.div>
             </motion.div>
         </div>
     );

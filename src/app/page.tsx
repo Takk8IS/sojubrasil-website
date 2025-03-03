@@ -2,244 +2,161 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { CustomCursor } from "./components/cursor";
 import { ScrollSection } from "./components/scroll-section";
 import { ProductsSection } from "./components/products-section";
 import { Footer } from "./components/footer";
 import { CookieConsent } from "./components/cookie-consent";
+import { SmoothScroll } from "./components/smooth-scroll";
+
+import sojuHeroLeft from "../assets/images/soju-hero-left.webp";
+import sojuHeroRight from "../assets/images/soju-hero-right.webp";
 
 export default function Home() {
     const containerRef = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start start", "end end"],
-    });
-
-    const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
     return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="relative bg-white"
-        >
+        <div className="relative min-h-screen bg-[var(--primary)]">
+            <SmoothScroll />
             <CustomCursor />
 
             <main ref={containerRef} className="relative">
-                {/* Hero Section */}
-                <motion.section
-                    className="relative h-screen flex items-center justify-center overflow-hidden"
-                    style={{ opacity: heroOpacity }}
-                >
-                    <div className="relative z-10 text-center">
-                        <motion.h1
-                            className="text-6xl md:text-8xl font-bold mb-4"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                        >
-                            <motion.span
-                                className="block"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8, delay: 0.3 }}
-                            >
-                                Chum Churum
-                            </motion.span>
-                            <motion.span
-                                // Using a more specific color for SEO - targeting the green apple variant
-                                className="block text-[#0F8C46]"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8, delay: 0.4 }}
-                            >
-                                SOJU
-                            </motion.span>
-                        </motion.h1>
-                        <motion.p
-                            className="text-xl md:text-2xl"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.5 }}
-                        >
-                            {/* Stronger, more SEO-friendly opening line */}
-                            Descubra Chum Churum: O Soju Coreano Mais Vendido do
-                            Mundo, Agora no Brasil.
-                        </motion.p>
+                <section className="relative h-screen flex items-center justify-center overflow-hidden bg-[var(--primary)]">
+                    <div className="relative z-10 text-center px-6 max-w-4xl">
+                        <h1>SOJU BRASIL</h1>
+                        <p>
+                            Descubra o mundo refrescante do autêntico Soju
+                            Coreano Premium
+                        </p>
                     </div>
+                    <div className="absolute inset-0 flex items-center justify-between px-10 pointer-events-none">
+                        <div className="absolute top-1/2 left-[10%] -translate-y-1/2 -rotate-12">
+                            <Image
+                                src={sojuHeroLeft}
+                                alt="Soju"
+                                width={300}
+                                height={800}
+                                className="h-[90vh] w-auto object-contain"
+                                priority
+                            />
+                        </div>
+                        <div className="absolute top-1/2 right-[10%] -translate-y-1/2 rotate-12">
+                            <Image
+                                src={sojuHeroRight}
+                                alt="Soju"
+                                width={300}
+                                height={800}
+                                className="h-[70vh] w-auto object-contain"
+                                priority
+                            />
+                        </div>
+                    </div>
+                </section>
 
-                    <motion.div
-                        className="absolute inset-0 flex items-center justify-center"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 0.2 }}
-                        transition={{ duration: 1, delay: 0.6 }}
-                    >
-                        {/* Updated image alt tags for better SEO, including flavor and brand */}
-                        <Image
-                            src="/placeholder.svg?height=800&width=300"
-                            alt="Garrafa de Soju Chum Churum - Sabor Original"
-                            width={300}
-                            height={800}
-                            className="absolute top-1/2 left-[20%] -translate-y-1/2 -rotate-12"
-                            priority
-                        />
-                        <Image
-                            src="/placeholder.svg?height=800&width=300"
-                            alt="Garrafa de Soju Chum Churum - Sabor Maçã Verde"
-                            width={300}
-                            height={800}
-                            className="absolute top-1/2 right-[20%] -translate-y-1/2 rotate-12"
-                            priority
-                        />
-                    </motion.div>
-                </motion.section>
-
-                {/* About Section */}
-                <ScrollSection as="div" className="bg-gray-50">
-                    <div className="container mx-auto px-4">
-                        <motion.h2
-                            className="text-4xl md:text-6xl font-bold mb-12 text-center"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                        >
-                            {/* More impactful heading, incorporating keywords */}
-                            O Que é Soju? Conheça Chum Churum, o Autêntico
-                            Destilado Coreano.
-                        </motion.h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                            <motion.div
-                                className="space-y-6"
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.8, delay: 0.2 }}
-                            >
-                                <p className="text-lg md:text-xl">
-                                    {/* Improved description with keywords and brand emphasis */}
-                                    <b>Chum Churum Soju</b>, produzido pela
-                                    Lotte, é a autêntica bebida destilada
-                                    coreana que conquistou o mundo. O Soju é a
-                                    bebida destilada mais vendida globalmente, e
-                                    Chum Churum é um dos seus rótulos mais
-                                    emblemáticos e agora disponível no Brasil.
-                                </p>
-                                <p className="text-lg md:text-xl">
-                                    {/* Clear mission statement */}
-                                    Nossa missão é trazer a verdadeira cultura
-                                    coreana ao Brasil, proporcionando uma
-                                    experiência única com o Soju Chum Churum,
-                                    símbolo de tradição e celebração na Coreia.
-                                </p>
-                            </motion.div>
-                            <motion.div
-                                className="space-y-6"
-                                initial={{ opacity: 0, x: 20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.8, delay: 0.4 }}
-                            >
-                                <p className="text-lg md:text-xl">
-                                    {/* Detailed description of the ingredients and process */}
-                                    Produzido com água mineral pura e destilados
-                                    de arroz e tapioca, cada garrafa de{" "}
-                                    <b>Chum Churum</b> carrega a essência da
-                                    cultura coreana. Oferece um sabor suave,
-                                    refrescante e levemente adocicado, perfeito
-                                    para qualquer ocasião.
-                                </p>
-                                <p className="text-lg md:text-xl">
-                                    {/* Highlight key features and the meaning of the name. */}
-                                    Com 16,5% de teor alcoólico, o{" "}
-                                    <b>Soju Chum Churum</b> é ideal para quem
-                                    busca um destilado premium, com sabor único
-                                    e tradição milenar. &quot;Chum Churum&quot;
-                                    significa &quot;Como na primeira vez&quot;.
-                                </p>
-                            </motion.div>
+                <ScrollSection
+                    as="div"
+                    className="bg-gray-50 min-h-screen flex items-center justify-center"
+                >
+                    <div className="container mx-auto px-6 max-w-6xl py-16">
+                        <h2 className="text-5xl md:text-7xl font-bold mb-12 text-center text-gray-900">
+                            Soju saboroso a cada drink
+                        </h2>
+                        <div className="grid grid-cols-1 gap-12">
+                            <p>
+                                Mergulhe no universo do Soju Chum Churum, a
+                                bebida destilada mais icônica da Coreia. Feita
+                                com ingredientes premium como arroz, batata ou
+                                tapioca, combina suavidade e um toque adocicado.
+                                Com menos calorias e um teor alcoólico leve, é
+                                perfeito para uma experiência descontraída, seja
+                                puro, gelado ou em coquetéis criativos. A
+                                essência do soju tradicional com 16,5% de teor
+                                alcoólico. Feito com água alcalina pura,
+                                destilado de arroz e tapioca, oferece suavidade
+                                única.
+                            </p>
                         </div>
                     </div>
                 </ScrollSection>
 
-                {/* Products Section */}
+                <ScrollSection
+                    as="div"
+                    className="bg-white min-h-screen flex items-center justify-center"
+                >
+                    <div className="container mx-auto px-6 max-w-6xl text-center py-16">
+                        <div>
+                            <h2 className="text-5xl md:text-7xl font-bold mb-8 text-gray-900">
+                                Linha Soonhari
+                            </h2>
+                            <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6 max-w-3xl mx-auto">
+                                A linha Soonhari transforma o soju em uma
+                                explosão de sabores frutados, ideal para quem
+                                busca algo doce, leve e divertido. Com 12% de
+                                teor alcoólico, é perfeita sozinha ou em
+                                coquetéis.
+                            </p>
+                            <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
+                                Conheça os 8 sabores que tornam a linha Soonhari
+                                irresistível logo abaixo.
+                            </p>
+                        </div>
+                    </div>
+                </ScrollSection>
+
                 <ProductsSection />
 
-                {/* Onde Encontrar Section */}
-                <ScrollSection as="div" className="bg-white">
-                    <div className="container mx-auto px-4">
-                        <div className="max-w-6xl mx-auto">
-                            <motion.h2
-                                className="text-4xl md:text-6xl font-bold mb-16 text-center"
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.8 }}
-                            >
-                                {/* Clear call to action in heading */}
-                                Onde Comprar Soju Chum Churum no Brasil
-                            </motion.h2>
-                            <div className="flex flex-col md:flex-row justify-between items-start">
-                                <motion.div
-                                    className="md:w-1/2 mb-8 md:mb-0"
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.8, delay: 0.2 }}
-                                >
-                                    <p className="text-xl md:text-2xl leading-relaxed">
-                                        {/* More direct and action-oriented description */}
-                                        Experimente o autêntico{" "}
-                                        <b>Soju Chum Churum</b> na loja{" "}
-                                        <b>Mimos Korea Design</b>, no Shopping
-                                        Recife. Oferecemos degustação dos
-                                        diversos sabores de Soju e um
-                                        atendimento especializado para você
-                                        mergulhar na cultura coreana.
-                                    </p>
-                                </motion.div>
-                                <motion.div
-                                    className="md:w-1/3"
-                                    initial={{ opacity: 0, x: 20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.8, delay: 0.4 }}
-                                >
-                                    {/*  Location details with schema.org markup for local SEO */}
-                                    <h3 className="text-2xl font-bold mb-4">
-                                        Shopping Recife
-                                    </h3>
-                                    <p
-                                        className="text-lg leading-relaxed"
-                                        itemScope
-                                        itemType="http://schema.org/LocalBusiness"
-                                    >
-                                        <span itemProp="name">
-                                            Mimos Korea Design
-                                        </span>
-                                        <br />
-                                        <span
-                                            itemProp="address"
-                                            itemScope
-                                            itemType="http://schema.org/PostalAddress"
-                                        >
-                                            <span itemProp="streetAddress">
-                                                R. Padre Carapuceiro, 777
-                                            </span>
-                                            <br />
-                                            <span itemProp="addressLocality">
-                                                Boa Viagem, Recife - PE
-                                            </span>
-                                            <br />
-                                            <span itemProp="postalCode">
-                                                CEP 51020-900
-                                            </span>
-                                            <br />
-                                        </span>
-                                    </p>
-                                </motion.div>
+                <ScrollSection
+                    as="div"
+                    className="bg-gray-50 min-h-screen flex items-center justify-center"
+                >
+                    <div className="container mx-auto px-6 max-w-6xl py-16">
+                        <h2 className="text-5xl md:text-7xl font-bold mb-12 text-center text-gray-900">
+                            Por que Escolher Chum Churum?
+                        </h2>
+                        <div className="text-center">
+                            <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto mb-6">
+                                Seja fã de bebidas coreanas ou em busca de novos
+                                sabores, o Soju Chum Churum oferece uma
+                                experiência única — tradição pura no Original e
+                                inovação frutada na linha Soonhari.
+                            </p>
+                            <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
+                                Com menos calorias e sabor suave, é perfeito
+                                para celebrações ou momentos casuais com amigos.
+                            </p>
+                        </div>
+                    </div>
+                </ScrollSection>
+
+                <ScrollSection
+                    as="div"
+                    className="bg-white min-h-screen flex items-center justify-center"
+                >
+                    <div className="container mx-auto px-6 max-w-6xl py-16">
+                        <h2 className="text-5xl md:text-7xl font-bold mb-12 text-center text-gray-900">
+                            Onde Encontrar
+                        </h2>
+                        <div className="flex flex-col md:flex-row justify-between items-start gap-12">
+                            <div className="md:w-1/2">
+                                <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+                                    Experimente o Soju Chum Churum em nossa loja
+                                    conceito no Recife, um espaço que une
+                                    sofisticação e cultura coreana.
+                                </p>
+                            </div>
+                            <div className="md:w-1/3">
+                                <h3 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-4">
+                                    Shopping Recife
+                                </h3>
+                                <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+                                    R. Padre Carapuceiro, 777
+                                    <br />
+                                    Boa Viagem, Recife - PE
+                                    <br />
+                                    CEP 51020-900
+                                    <br />
+                                    Piso L2 - Loja 321
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -248,6 +165,6 @@ export default function Home() {
 
             <Footer />
             <CookieConsent />
-        </motion.div>
+        </div>
     );
 }

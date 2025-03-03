@@ -1,1 +1,19 @@
-{"pages":{},"app":{"/Users/david/Takk/Hub/clients/MimosKoreaDesign/sojubrasil-website/src/app/layout":["static/media/f7040064460a9b21-s.p.woff2"]},"appUsingSizeAdjust":true,"pagesUsingSizeAdjust":false}
+{
+  "app": {
+    "[project]/src/app/page": [
+      "static/media/q5uCsoe9Lv5t7Meb31EcExN8hK5SAMo-s.p.d797941a.woff2"
+    ],
+    "[project]/src/app/cookies/page": [
+      "static/media/q5uCsoe9Lv5t7Meb31EcExN8hK5SAMo-s.p.d797941a.woff2"
+    ],
+    "[project]/src/app/termos/page": [
+      "static/media/q5uCsoe9Lv5t7Meb31EcExN8hK5SAMo-s.p.d797941a.woff2"
+    ],
+    "[project]/src/app/privacidade/page": [
+      "static/media/q5uCsoe9Lv5t7Meb31EcExN8hK5SAMo-s.p.d797941a.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pages": {},
+  "pagesUsingSizeAdjust": false
+}

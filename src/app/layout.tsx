@@ -1,15 +1,14 @@
 import type React from "react";
-import type { Metadata } from "next";
-import { Mulish } from "next/font/google";
+import { Golos_Text } from "next/font/google";
 import "./globals.css";
 
-const mulish = Mulish({
+const golos = Golos_Text({
     subsets: ["latin"],
     display: "swap",
-    weight: ["300", "400", "700"],
+    weight: ["400", "500", "600", "700", "900"],
 });
 
-export const metadata: Metadata = {
+export const metadata = {
     title: "Chum Churum Soju | Soju Brasil - O Autêntico Sabor Coreano",
     description:
         "Descubra o Chum Churum Soju, a bebida destilada mais vendida no mundo, importada diretamente da Coreia pela Soju Brasil (Lotte). Experimente o sabor suave e refrescante do soju original e dos sabores Pêssego, Uva, Cidra, Maçã, Morango e Iogurte. Teor alcoólico: 16.5%. Compre online!",
@@ -85,7 +84,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="pt-BR" className={mulish.className}>
+        <html lang="pt-BR" className={golos.className}>
             <body>{children}</body>
         </html>
     );
