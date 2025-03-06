@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@layer base {
+    :root {
+        --foreground-rgb: 0, 0, 0;
+        --background-rgb: 255, 255, 255;
+    }
+}
+
+.text-outline {
+    -webkit-text-stroke: 1px currentColor;
+    text-stroke: 1px currentColor;
+}
+
+.text-giant {
+    font-size: clamp(4rem, 15vw, 20rem);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+}
+
+.text-mega {
+    font-size: clamp(3rem, 10vw, 15rem);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+}
+
+.gradient-mask {
+    mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 50%,
+        rgba(0, 0, 0, 0) 100%
+    );
+}
+
+.floating {
+    animation: floating 3s ease-in-out infinite;
+    will-change: transform;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.repeating-text {
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.repeating-text::before,
+.repeating-text::after {
+    content: attr(data-text);
+    padding-right: 2rem;
+    animation: slide 20s linear infinite;
+    will-change: transform;
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.blend-difference {
+    mix-blend-mode: difference;
+}
+
+.bottle-shadow {
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1));
+}
+
+.section-padding {
+    @apply px-[60px] py-[80px];
+}
+
+@media (max-width: 768px) {
+    .section-padding {
+        @apply px-6 py-12;
+    }
+}
+
+.smooth-transition {
+    @apply transition-all duration-500 ease-in-out;
+}
+
+.text-balance {
+    text-wrap: balance;
+}
